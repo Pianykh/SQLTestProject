@@ -1,6 +1,5 @@
 ﻿@db
-Feature: DataBase connection
-	Simple calculator for adding two numbers
+Feature: DataBase connection	
 
 Scenario: It is possible to create row in database table
 	Given Establish a database connection
