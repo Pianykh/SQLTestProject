@@ -71,10 +71,8 @@ namespace SQLTestProject
             foreach (var (key, value) in parameters)
                 whereParameters += $" and {key}={value}";                     
 
-            foreach (var (key, value) in newParameters)
-            {
-                setParameters += $"{key}={value},";
-            }
+            foreach (var (key, value) in newParameters)            
+                setParameters += $"{key}={value},";            
 
             var command = new SqlCommand($"update {table} set {setParameters.Trim(',')} where {whereParameters.Substring(5)}",
                 _sqlConnection);
