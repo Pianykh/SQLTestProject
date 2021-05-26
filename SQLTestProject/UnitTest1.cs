@@ -27,8 +27,8 @@ namespace SQLTestProject
         {
             _sqlHelper.Insert("Products",
                 new Dictionary<string, string> { { "Id", "23" }, { "Name", "'Test23'" }, { "Count", "234" } });
-            var res = _sqlHelper.IsRowExistedInTable("Products",
 
+            var res = _sqlHelper.IsRowExistedInTable("Products",
                 new Dictionary<string, string> { { "Id", "23" }, { "Name", "'Test23'" }, { "Count", "234" } });
 
             Assert.True(res);
