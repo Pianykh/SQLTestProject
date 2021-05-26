@@ -28,6 +28,7 @@ namespace SQLTestProject
             _sqlHelper.Insert("Products",
                 new Dictionary<string, string> { { "Id", "23" }, { "Name", "'Test23'" }, { "Count", "234" } });
             var res = _sqlHelper.IsRowExistedInTable("Products",
+
                 new Dictionary<string, string> { { "Id", "23" }, { "Name", "'Test23'" }, { "Count", "234" } });
 
             Assert.True(res);
@@ -38,8 +39,10 @@ namespace SQLTestProject
         {
             _sqlHelper.Insert("Products",
                 new Dictionary<string, string> { { "Id", "23" }, { "Name", "'Test23'" }, { "Count", "234" } });
+
             _sqlHelper.Delete("Products",
                 new Dictionary<string, string> { { "Name", "'Test23'" }, { "Count", "234" } });
+
             var res = _sqlHelper.IsRowExistedInTable("Products",
                 new Dictionary<string, string> { { "Id", "23" }, { "Name", "'Test23'" }, { "Count", "234" } });
 
@@ -51,6 +54,7 @@ namespace SQLTestProject
         {
             _sqlHelper.Insert("Products",
                 new Dictionary<string, string> { { "Id", "23" }, { "Name", "'Test23'" }, { "Count", "234" } });
+
             _sqlHelper.Edit("Products",
                 new Dictionary<string, string> { { "Id", "23" }, { "Name", "'Test23'" }, { "Count", "234" } },
                 new Dictionary<string, string> { { "Id", "22" }, { "Name", "'Test22'" }, { "Count", "224" } });
