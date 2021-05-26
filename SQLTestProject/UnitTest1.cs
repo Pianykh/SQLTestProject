@@ -23,7 +23,7 @@ namespace SQLTestProject
         }
 
         [Test]
-        public void Test1()
+        public void Insert_ShouldCreateRowInDataBase()
         {
             _sqlHelper.Insert("Products",
                 new Dictionary<string, string> { { "Id", "23" }, { "Name", "'Test23'" }, { "Count", "234" } });
@@ -34,7 +34,7 @@ namespace SQLTestProject
         }
 
         [Test]
-        public void Test2()
+        public void Delete_ShouldDeleteRowInDataBase()
         {
             _sqlHelper.Insert("Products",
                 new Dictionary<string, string> { { "Id", "23" }, { "Name", "'Test23'" }, { "Count", "234" } });
@@ -47,7 +47,7 @@ namespace SQLTestProject
         }
 
         [Test]
-        public void Test3()
+        public void Edit_ShouldEditRowInDatabase()
         {
             _sqlHelper.Insert("Products",
                 new Dictionary<string, string> { { "Id", "23" }, { "Name", "'Test23'" }, { "Count", "234" } });
