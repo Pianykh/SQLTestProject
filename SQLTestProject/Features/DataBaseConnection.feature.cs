@@ -107,9 +107,6 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 5
- testRunner.Given("Establish a database connection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                             "id",
                             "name",
@@ -118,7 +115,7 @@ this.ScenarioInitialize(scenarioInfo);
                             string.Format("{0}", id),
                             string.Format("{0}", name),
                             string.Format("{0}", count)});
-#line 6
+#line 5
  testRunner.When("I create row in table with data", ((string)(null)), table1, "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -129,7 +126,7 @@ this.ScenarioInitialize(scenarioInfo);
                             string.Format("{0}", id),
                             string.Format("{0}", name),
                             string.Format("{0}", count)});
-#line 9
+#line 8
  testRunner.Then("Row created with data", ((string)(null)), table2, "Then ");
 #line hidden
             }
@@ -147,7 +144,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("name", name);
             argumentsOfScenario.Add("count", count);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("It is possible to delete row in database table", null, tagsOfScenario, argumentsOfScenario);
-#line 16
+#line 15
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -167,9 +164,6 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 17
- testRunner.Given("Establish a database connection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
                 TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                             "id",
                             "name",
@@ -178,8 +172,8 @@ this.ScenarioInitialize(scenarioInfo);
                             string.Format("{0}", id),
                             string.Format("{0}", name),
                             string.Format("{0}", count)});
-#line 18
- testRunner.And("Row created in database with data", ((string)(null)), table3, "And ");
+#line 16
+ testRunner.Given("Row created in database with data", ((string)(null)), table3, "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                             "id",
@@ -189,7 +183,7 @@ this.ScenarioInitialize(scenarioInfo);
                             string.Format("{0}", id),
                             string.Format("{0}", name),
                             string.Format("{0}", count)});
-#line 21
+#line 19
  testRunner.When("I delete row in table with data", ((string)(null)), table4, "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
@@ -200,7 +194,7 @@ this.ScenarioInitialize(scenarioInfo);
                             string.Format("{0}", id),
                             string.Format("{0}", name),
                             string.Format("{0}", count)});
-#line 24
+#line 22
  testRunner.Then("Row with data deleted", ((string)(null)), table5, "Then ");
 #line hidden
             }
@@ -221,7 +215,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("newName", newName);
             argumentsOfScenario.Add("newCount", newCount);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("It is possible to edit row in database table", null, tagsOfScenario, argumentsOfScenario);
-#line 31
+#line 29
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -241,9 +235,6 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 32
- testRunner.Given("Establish a database connection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
                 TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                             "id",
                             "name",
@@ -252,8 +243,8 @@ this.ScenarioInitialize(scenarioInfo);
                             string.Format("{0}", id),
                             string.Format("{0}", name),
                             string.Format("{0}", count)});
-#line 33
- testRunner.And("Row created in database with data", ((string)(null)), table6, "And ");
+#line 30
+ testRunner.Given("Row created in database with data", ((string)(null)), table6, "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                             "id",
@@ -269,7 +260,7 @@ this.ScenarioInitialize(scenarioInfo);
                             string.Format("{0}", newId),
                             string.Format("{0}", newName),
                             string.Format("{0}", newCount)});
-#line 36
+#line 33
  testRunner.When("I edit row in table with data", ((string)(null)), table7, "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
@@ -280,8 +271,59 @@ this.ScenarioInitialize(scenarioInfo);
                             string.Format("{0}", newId),
                             string.Format("{0}", newName),
                             string.Format("{0}", newCount)});
-#line 39
+#line 36
  testRunner.Then("Row modified with data", ((string)(null)), table8, "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("It is impossible to create row with invalid data in database table")]
+        [NUnit.Framework.TestCaseAttribute("dsa", "name", "1", "Недопустимое имя столбца \"dsa\".", null)]
+        [NUnit.Framework.TestCaseAttribute("1", "name", "gaf", "Недопустимое имя столбца \"gaf\".", null)]
+        public virtual void ItIsImpossibleToCreateRowWithInvalidDataInDatabaseTable(string id, string name, string count, string message, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("id", id);
+            argumentsOfScenario.Add("name", name);
+            argumentsOfScenario.Add("count", count);
+            argumentsOfScenario.Add("message", message);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("It is impossible to create row with invalid data in database table", null, tagsOfScenario, argumentsOfScenario);
+#line 43
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                            "id",
+                            "name",
+                            "count"});
+                table9.AddRow(new string[] {
+                            string.Format("{0}", id),
+                            string.Format("{0}", name),
+                            string.Format("{0}", count)});
+#line 44
+ testRunner.When("I create row in table with data", ((string)(null)), table9, "When ");
+#line hidden
+#line 47
+ testRunner.Then(string.Format("Displayed exception message \'{0}\'", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

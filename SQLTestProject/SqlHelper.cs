@@ -53,7 +53,7 @@ namespace SQLTestProject
 
         public void Delete(string table, Dictionary<string, string> parameters)
         {
-            var whereParameters = string.Empty;            
+            var whereParameters = string.Empty;
 
             foreach (var (key, value) in parameters)
                 whereParameters += $" and {key}={value}";
@@ -66,13 +66,13 @@ namespace SQLTestProject
         public void Edit(string table, Dictionary<string, string> parameters, Dictionary<string, string> newParameters)
         {
             var whereParameters = string.Empty;
-            var setParameters = string.Empty;            
+            var setParameters = string.Empty;
 
             foreach (var (key, value) in parameters)
-                whereParameters += $" and {key}={value}";                     
+                whereParameters += $" and {key}={value}";
 
-            foreach (var (key, value) in newParameters)            
-                setParameters += $"{key}={value},";            
+            foreach (var (key, value) in newParameters)
+                setParameters += $"{key}={value},";
 
             var command = new SqlCommand($"update {table} set {setParameters.Trim(',')} where {whereParameters.Substring(5)}",
                 _sqlConnection);
@@ -94,6 +94,11 @@ namespace SQLTestProject
             sqlDataAdapter.Fill(dataTable);
 
             return dataTable.Rows.Count > 0;
+        }
+        public void ClearTable(string table)
+        {
+            var command = new SqlCommand($"delete from {table}", _sqlConnection);
+            command.ExecuteNonQuery();
         }
     }
 }

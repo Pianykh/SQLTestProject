@@ -10,25 +10,33 @@ namespace SQLTestProject.API
     [Binding]
     public class DataBaseConnectionSteps
     {
-        private readonly SqlHelper _sqlHelper = new SqlHelper("Shop");
+        private readonly ScenarioContext _scenarioContext;
+        private readonly SqlHelper _sqlHelper;
 
-        [Given(@"Establish a database connection")]
-        public void GivenEstablishADatabaseConnection()
+        public DataBaseConnectionSteps(ScenarioContext scenarioContext)
         {
-            _sqlHelper.OpenConnection();
+            _scenarioContext = scenarioContext;
+            _sqlHelper = _scenarioContext.Get<SqlHelper>(Context.SqlHelper);
         }
 
         [When(@"I create row in table with data")]
         public void WhenICreateRowInTableWithData(Table table)
         {
             var productModels = table.CreateSet<ProductModel>().ToList();
-
-            _sqlHelper.Insert("Products",
-                new Dictionary<string, string> {
+            try
+            {
+                _sqlHelper.Insert("Products",
+                   new Dictionary<string, string> {
                     { "Id", $"{ productModels[0].Id }" },
                     { "Name", $"'{ productModels[0].Name }'" },
                     { "Count", $"{ productModels[0].Count }" }
-                });
+                   });
+            }
+            catch (Exception exception)
+            {
+                _scenarioContext.Add(Context.ExceptionMessage, exception);
+
+            }
         }
 
         [Then(@"Row created with data")]
@@ -118,6 +126,12 @@ namespace SQLTestProject.API
                 });
 
             Assert.IsTrue(isRowExist);
+        }
+
+        [Then(@"Displayed exception message '(.*)'")]
+        public void ThenDisplayedExceptionMessage(string message)
+        {
+            Assert.AreEqual(message, _scenarioContext.Get<Exception>(Context.ExceptionMessage).Message);
         }
 
 
