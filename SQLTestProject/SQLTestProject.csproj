@@ -17,15 +17,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Features\SpecFlowFeature1.feature.cs">
+    <Compile Update="Features\DataBaseConnection.feature.cs">
       <DesignTime>True</DesignTime>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <SpecFlowFeatureFiles Update="Features\SpecFlowFeature1.feature">
+    <SpecFlowFeatureFiles Update="Features\DataBaseConnection.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>SpecFlowFeature1.feature.cs</LastGenOutput>
+      <LastGenOutput>DataBaseConnection.feature.cs</LastGenOutput>
     </SpecFlowFeatureFiles>
   </ItemGroup>
 
